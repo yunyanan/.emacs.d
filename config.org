@@ -4,6 +4,45 @@
 #+DATE: <2020-02-04 二>
 
 * Table of Content                                                      :TOC:
+- [[#about][About]]
+- [[#emacs-initialization][Emacs Initialization]]
+  - [[#package-source][Package source]]
+  - [[#use-package][use-package]]
+- [[#start-up][Start Up]]
+  - [[#better-default][Better default]]
+  - [[#fonts][Fonts]]
+  - [[#theme][Theme]]
+- [[#languages][Languages]]
+  - [[#cc][C/C++]]
+  - [[#emacs-lisp][Emacs Lisp]]
+  - [[#shell-script][Shell-script]]
+  - [[#xml][XML]]
+- [[#advanced-configuration][Advanced Configuration]]
+  - [[#projectile][Projectile]]
+  - [[#dashboard][Dashboard]]
+  - [[#hydra][Hydra]]
+  - [[#ivy][Ivy]]
+  - [[#undo-tree][Undo-tree]]
+  - [[#which-key][Which-key]]
+  - [[#mwim][Mwim]]
+  - [[#icons][Icons]]
+  - [[#windows][Windows]]
+  - [[#indent][Indent]]
+  - [[#paradox][Paradox]]
+  - [[#company][Company]]
+  - [[#ag][Ag]]
+  - [[#bing][Bing]]
+  - [[#git][Git]]
+  - [[#parentheses][Parentheses]]
+  - [[#rainbow][Rainbow]]
+  - [[#ggtags][Ggtags]]
+  - [[#buffers][Buffers]]
+  - [[#dired][Dired]]
+  - [[#try][Try]]
+  - [[#hungry-delete][Hungry-delete]]
+  - [[#word-wrap][Word Wrap]]
+  - [[#htmlize][Htmlize]]
+  - [[#org-mode][ORG mode]]
 
 * About
 
@@ -830,4 +869,3 @@ I like to have lines of the same length.
           (markdown-mode . toc-org-mode))
 #+end_src
 
-* END

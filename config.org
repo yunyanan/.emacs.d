@@ -46,12 +46,13 @@
 
 * About
 
-I've been using GNU Emacs for a long time, but my configuration has been messy. 
+I've been using GNU Emacs for a long time, but my configuration has been messy.
 Now I rearranged my configuration，And I hope to update and maintain on this 
 basis in the future. 
 
-This configuration is mainly based on rememberYou's configuration, He helped me 
-many times on some emacs issues, and I am very grateful to him.
+This configuration is mainly based on
+[rememberYou](https://github.com/rememberYou/.emacs.d)'s configuration, He
+helped me many times on some emacs issues, and I am very grateful to him.
  
 * Emacs Initialization
 

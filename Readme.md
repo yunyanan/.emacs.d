@@ -2,6 +2,8 @@
 
 ---
 
+## Introduce
+
 This is my emacs configuration, it's simple, but in terms of editing, I think
 it's good enough. Of course, I will continue to improve it.
 
@@ -13,7 +15,7 @@ Main configuration file.
 
 ## Getting Started
 
-Back up old configuration directory and clone this repository.
+Back up old configuration directory and clone this repository:
 
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.bak
@@ -28,8 +30,8 @@ git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
   installed all the required packages, run all the commands to complete
   the final installation.
 
-  package|command
-  -------|:------:
-  [Doom-modeline](https://github.com/seagle0128/doom-modeline) | =M-x all-the-icons-install-fonts RTE=
-  [Tab-nine](https://github.com/TommyX12/company-tabnine)| =M-x company-tabnine-install-binary= 
+  |package                                                       |command                                       |
+  |:------------------------------------------------------------:|:--------------------------------------------:|
+  |[Doom-modeline](https://github.com/seagle0128/doom-modeline)  | `M-x` `all-the-icons-install-fonts` `RTE`    |
+  |[Tabnine](https://github.com/TommyX12/company-tabnine)        | `M-x` `company-tabnine-install-binary` `RTE` | 
 

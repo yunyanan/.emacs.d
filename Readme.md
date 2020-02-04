@@ -35,3 +35,9 @@ git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
   |[Doom-modeline](https://github.com/seagle0128/doom-modeline)  | `M-x` `all-the-icons-install-fonts` `RTE`    |
   |[Tabnine](https://github.com/TommyX12/company-tabnine)        | `M-x` `company-tabnine-install-binary` `RTE` | 
 
+## License
+
+The code is not licensed, take what you like and hope that this configuration
+can be so useful to you that it is for me.
+
+GNU Emacs is above all a concept of sharing in order to facilitate our daily life.

@@ -1,11 +1,10 @@
 <p align="center"><img src="assets/Screenshot.png"/></p>
 
-<p align="center">
+---
+
+<p align="left">
 	<a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/GNU%20Emacs-26.3-brightgreen"/></a>
 </p>
-
-
----
 
 ## Introduce
 

@@ -3,6 +3,8 @@
 #+OPTIONS: ^:nil
 #+DATE: <2020-02-04 二>
 
+* Table of Content                                                      :TOC:
+
 * About
 
 I've been using GNU Emacs for a long time, but my configuration has been messy. 
@@ -690,15 +692,6 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
   :hook (prog-mode))
 #+end_src
 
-** Bullets
-
-#+begin_src emacs-lisp :tangle yes
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :custom
-    (org-bullets-bullet-list '("●" "►" "▸")))
-#+end_src
-
 ** Ggtags
 
 #+begin_src emacs-lisp :tangle yes
@@ -817,3 +810,24 @@ I like to have lines of the same length.
 #+begin_src emacs-lisp :tangle yes
   (use-package htmlize :defer 1)
 #+end_src
+
+
+** ORG mode
+*** =org-bullets=
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("●" "►" "▸")))
+#+end_src
+
+*** =toc-org=
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package toc-org
+    :hook (org-mode . toc-org-mode)
+          (markdown-mode . toc-org-mode))
+#+end_src
+
+* END

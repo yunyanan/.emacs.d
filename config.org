@@ -17,6 +17,7 @@
   - [[#emacs-lisp][Emacs Lisp]]
   - [[#shell-script][Shell-script]]
   - [[#xml][XML]]
+  - [[#markdown][Markdown]]
 - [[#advanced-configuration][Advanced Configuration]]
   - [[#projectile][Projectile]]
   - [[#dashboard][Dashboard]]
@@ -41,8 +42,7 @@
   - [[#try][Try]]
   - [[#hungry-delete][Hungry-delete]]
   - [[#word-wrap][Word Wrap]]
-  - [[#htmlize][Htmlize]]
-  - [[#org-mode][ORG mode]]
+  - [[#org-mode][Org mode]]
 
 * About
 
@@ -187,6 +187,8 @@ it installed on your system first.
 
 ** C/C++
 
+I use C at most of the time, I really like it.
+
 #+begin_src emacs-lisp :tangle yes
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
@@ -228,6 +230,9 @@ Provides minibuffer hints when working with Emacs Lisp.
 
 ** Shell-script
 
+The snippet below ensures that the execution right is automatically granted to
+save a shell script file that begins with a =#!=:
+
 #+begin_src emacs-lisp :tangle yes
   (use-package sh-script
     :ensure nil
@@ -242,9 +247,21 @@ Provides minibuffer hints when working with Emacs Lisp.
     :mode ("\\.wsdl\\'" "\\.xsd\\'"))
 #+end_src
 
+** Markdown
+
+#+begin_src emacs-lisp :tangle yes
+(use-package markdown-mode
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
+
 * Advanced Configuration
 
 ** Projectile
+
+Projectile is a project interaction library for Emacs.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package projectile
@@ -254,6 +271,9 @@ Provides minibuffer hints when working with Emacs Lisp.
 #+end_src
 
 ** Dashboard
+
+Dashboard can tell me the startup time, the number of packages loaded, etc. It
+can also let me start my work more quickly.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package dashboard
@@ -374,6 +394,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Ivy
+
+Ivy is a generic completion mechanism for Emacs. 
 
 #+begin_src emacs-lisp :tangle yes
 (use-package ivy
@@ -526,6 +548,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Undo-tree
 
+Undo-tree allows mē to make undo and redo clearer.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package undo-tree
   :delight
@@ -538,6 +562,9 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Which-key
 
+It’s difficult to remember all the keyboard shortcuts. The which-key package
+helps to solve this.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package which-key
   :defer 0.2
@@ -546,6 +573,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Mwim
+
+Mwim allows the cursor to move smarter at the head or end of the line
 
 #+begin_src emacs-lisp :tangle yes
 (use-package mwim
@@ -556,11 +585,16 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Icons
 
+Icons can make emacs look more beautiful.
+
 #+begin_src emacs-lisp :tangle yes
   (use-package all-the-icons :defer 0.5)
 #+end_src
 
 ** Windows
+
+Most of the time, when I open a new window with =C-x 2= or =C-x 3= it is to
+switch directly to it and perform an action.
 
 #+begin_src emacs-lisp :tangle yes
   (use-package window
@@ -583,6 +617,9 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 *** =switch-window=
 
+Displays an overlay in each window showing a unique key, then asks the user
+where to move in the window.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package switch-window
   :bind (("C-x o" . switch-window)
@@ -590,6 +627,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Indent
+
+Auto-indent code as you write.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package aggressive-indent
@@ -600,6 +639,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Paradox
+
+Improved GNU Emacs standard package menu.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package paradox
@@ -615,6 +656,9 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Company
+
+Company provides auto-completion at point and to Displays a small pop-in
+containing the candidates.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package company
@@ -651,6 +695,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Ag
 
+Faster search for what you want.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package ag
   :defer 1
@@ -659,6 +705,8 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 ** Bing
+
+I always come across words I don't know. I look them up in a bing dictionary.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package bing-dict
@@ -671,7 +719,13 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Git
 
+It is quite common to work on Git repositories, so it is important to have a
+configuration that we like.
+
 *** =git-gutter=
+
+In addition to that, I like to see the lines that are being modified in the file
+while it is being edited.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package git-gutter
@@ -681,6 +735,9 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 #+end_src
 
 *** =magit=
+
+Magit is an interface to the version control system Git, implemented as an Emacs
+package.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package magit :defer 1)
@@ -725,6 +782,10 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
 #+end_src
 
 ** Rainbow
+
+This minor mode sets background color to strings that match color
+names, e.g. #0000ff is displayed in white with a blue background.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package rainbow-mode
   :delight
@@ -733,6 +794,8 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
 
 ** Ggtags
 
+I use ggtags to read the code in emacs, it needs to work with GNU Global.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package ggtags
   :init
@@ -740,7 +803,6 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
 			(lambda ()
 			  (when (derived-mode-p 'c-mode 'c++-mode)
 				(ggtags-mode 1))))
-  (add-hook 'after-save-hook 'ggtags-update-tags)
   :preface
   (defun my/kill-ggtags-global-buffer ()
 	(interactive)
@@ -753,6 +815,9 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
 #+end_src
 
 ** Buffers
+
+Buffers can quickly become a mess. For some people, it’s not a problem, but I
+like being able to find my way easily.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package ibuffer
@@ -768,6 +833,8 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
   :hook (ibuffer . my/ibuffer-projectile))
 #+end_src
 
+Some buffers should not be deleted by accident:
+
 #+begin_src emacs-lisp :tangle yes
 (defvar *protected-buffers* '("*scratch*" "*Messages*")
   "Buffers that cannot be killed.")
@@ -782,6 +849,8 @@ parenthesis. Anyway, if you don't like it, you can try taking a look at
 #+end_src
 
 ** Dired
+
+GNU Emacs is also a file explorer.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package dired
@@ -844,15 +913,10 @@ I like to have lines of the same length.
     :custom (set-mark-command-repeat-pop t))
 #+end_src
 
-** Htmlize
-
-#+begin_src emacs-lisp :tangle yes
-  (use-package htmlize :defer 1)
-#+end_src
-
-
-** ORG mode
+** Org mode
 *** =org-bullets=
+
+Prettier bullets in org-mode.
 
 #+begin_src emacs-lisp :tangle yes
   (use-package org-bullets
@@ -863,9 +927,19 @@ I like to have lines of the same length.
 
 *** =toc-org=
 
+It can generate table of content in the org file.
+
 #+begin_src emacs-lisp :tangle yes
   (use-package toc-org
     :hook (org-mode . toc-org-mode)
           (markdown-mode . toc-org-mode))
+#+end_src
+
+*** =htmlize=
+
+Org needs it for exporting HTML files.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package htmlize :defer 1)
 #+end_src
 

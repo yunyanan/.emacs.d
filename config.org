@@ -1,5 +1,7 @@
 #+TITLE: GNU Emacs Configuration
 #+AUTHOR: Yun Yanan
+#+OPTIONS: ^:nil
+#+DATE: <2020-02-04 二>
 
 * About
 
@@ -101,7 +103,7 @@ it installed on your system first.
 [[https://github.com/seagle0128/doom-modeline][doom-modeline]], I're been using them for a long time.  
 
 *NOTE:* To be able to see icons in the =doom-modeline=, you will need to install
-[[#Icons][all-the-icons]].
+[[Icons][all-the-icons]].
 
 #+begin_src emacs-lisp :tangle yes
  (use-package nord-theme
@@ -514,7 +516,7 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 ** Icons
 
 #+begin_src emacs-lisp :tangle yes
-(use-package all-the-icons :defer 0.5)
+  (use-package all-the-icons :defer 0.5)
 #+end_src
 
 ** Windows
@@ -810,7 +812,8 @@ I like to have lines of the same length.
     :custom (set-mark-command-repeat-pop t))
 #+end_src
 
+** Htmlize
 
 #+begin_src emacs-lisp :tangle yes
-
+  (use-package htmlize :defer 1)
 #+end_src

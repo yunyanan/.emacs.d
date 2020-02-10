@@ -109,6 +109,7 @@ For a better user experience of GNU Emacs, here are the default values I use.
    vc-follow-symlinks t                             ; Always follow the symlinks
    view-read-only t)                                ; Always open read-only buffers in view-mode
   (setq auto-save-default nil)                      ; Disable default save method
+  (setq make-backup-files nil)                      ; Disable default backup method
   (cd "~/")                                         ; Move to the user directory
   (column-number-mode 1)                            ; Show the column number
   (global-linum-mode -1)                            ; Don't show line number
@@ -639,8 +640,17 @@ where to move in the window.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package switch-window
-  :bind (("C-x o" . switch-window)
-		 ("C-x w" . switch-window-then-swap-buffer)))
+  :bind (("C-x w" . switch-window-then-swap-buffer)))
+#+end_src
+
+*** =window-number=
+
+Use Alt +number to quickly switch Windows.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package window-numbering
+  :defer 0.5
+  :config (window-numbering-mode))
 #+end_src
 
 ** Indent

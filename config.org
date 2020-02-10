@@ -12,6 +12,7 @@
   - [[#better-default][Better default]]
   - [[#fonts][Fonts]]
   - [[#theme][Theme]]
+  - [[#save-method][Save Method]]
 - [[#languages][Languages]]
   - [[#cc][C/C++]]
   - [[#emacs-lisp][Emacs Lisp]]
@@ -47,18 +48,18 @@
 * About
 
 I've been using GNU Emacs for a long time, but my configuration has been messy.
-Now I rearranged my configuration，And I hope to update and maintain on this 
-basis in the future. 
+Now I rearranged my configuration，And I hope to update and maintain on this
+basis in the future.
 
 This configuration is mainly based on
 [[https://github.com/rememberYou/.emacs.d][rememberYou]]'s configuration, He
 helped me many times on some emacs issues, and I am very grateful to him.
- 
+
 * Emacs Initialization
 
 ** Package source
 
-In order to get more packages, it is necessary to add some package sources. I 
+In order to get more packages, it is necessary to add some package sources. I
 chose Tsinghua‘s package source because it is relatively stable and fast.
 
 #+begin_src emacs-lisp :tangle yes
@@ -107,6 +108,7 @@ For a better user experience of GNU Emacs, here are the default values I use.
    user-mail-address "yunyanan1@gmail.com"          ; Set the email address of the current user
    vc-follow-symlinks t                             ; Always follow the symlinks
    view-read-only t)                                ; Always open read-only buffers in view-mode
+  (setq auto-save-default nil)                      ; Disable default save method
   (cd "~/")                                         ; Move to the user directory
   (column-number-mode 1)                            ; Show the column number
   (global-linum-mode -1)                            ; Don't show line number
@@ -142,7 +144,7 @@ it installed on your system first.
 ** Theme
 
 [[https://github.com/arcticicestudio/nord-emacs][Nord-theme]] is a very cool theme, and it would be perfect if you use it with
-[[https://github.com/seagle0128/doom-modeline][doom-modeline]], I're been using them for a long time.  
+[[https://github.com/seagle0128/doom-modeline][doom-modeline]], I're been using them for a long time.
 
 *NOTE:* To be able to see icons in the =doom-modeline=, you will need to install
 [[Icons][all-the-icons]].
@@ -182,6 +184,19 @@ it installed on your system first.
     :config
     (solaire-mode-swap-bg)
     (solaire-global-mode +1))
+#+end_src
+
+** Save Method
+
+Saving is a very important action, but it's easy to forget. So let =super-save=
+help you.
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package super-save
+    :defer 1
+    :config
+    (super-save-mode 1)
+    (setq super-save-auto-save-when-idle t))
 #+end_src
 
 * Languages
@@ -396,7 +411,7 @@ Hydra allows me to display a list of all the commands implemented in the echo ar
 
 ** Ivy
 
-Ivy is a generic completion mechanism for Emacs. 
+Ivy is a generic completion mechanism for Emacs.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package ivy
@@ -614,6 +629,7 @@ switch directly to it and perform an action.
       (interactive)
       (split-window-vertically)
       (other-window 1)))
+
 #+end_src
 
 *** =switch-window=
@@ -746,7 +762,7 @@ package.
 
 ** Parentheses
 
-Managing parentheses can be painful. One of the first things you want to do is 
+Managing parentheses can be painful. One of the first things you want to do is
 to change the appearance of the highlight of the parentheses pairs.
 
 #+begin_src emacs-lisp :tangle yes
@@ -759,10 +775,10 @@ to change the appearance of the highlight of the parentheses pairs.
   (set-face-foreground 'show-paren-match "#ffffff"))
 #+end_src
 
-*** =rainbow-delimiters= 
+*** =rainbow-delimiters=
 
 Rainbow-delimiters can make parentheses like a rainbow of colors.
- 
+
 #+begin_src emacs-lisp :tangle yes
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -943,4 +959,3 @@ Org needs it for exporting HTML files.
 #+begin_src emacs-lisp :tangle yes
   (use-package htmlize :defer 1)
 #+end_src
-

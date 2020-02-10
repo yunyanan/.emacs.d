@@ -4,3 +4,6 @@ recentf*
 transient/*
 projectile-bookmarks.eld
 auto-save-list/*
+url/
+eshell/
+bookmarks

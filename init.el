@@ -17,7 +17,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode org-plus-contrib ggtags use-package-ensure-system-package delight use-package))))
+    (super-save markdown-mode org-plus-contrib ggtags use-package-ensure-system-package delight use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

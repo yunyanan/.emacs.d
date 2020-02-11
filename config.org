@@ -699,6 +699,7 @@ containing the candidates.
   (global-company-mode t))
 
 (use-package company-box
+  :disabled
   :after company
   :delight
   :hook (company-mode . company-box-mode))
@@ -710,7 +711,7 @@ containing the candidates.
   ;; Trigger completion immediately.
   (setq company-idle-delay 0.5)
   ;; Number the candidates (use M-1, M-2 etc to select completions).
-  (setq company-show-numbers t)
+  (setq company-show-numbers nil)
   ;; Use the tab-and-go frontend.
   ;; Allows TAB to select and complete at the same time.
   (company-tng-configure-default)

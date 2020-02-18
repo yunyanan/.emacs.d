@@ -207,26 +207,44 @@ help you.
 I use C at most of the time, I really like it.
 
 #+begin_src emacs-lisp :tangle yes
-  (setq-default c-basic-offset 4)
-  (setq-default tab-width 4)
+  (setq-default c-basic-offset 4
+                tab-width 4
+                indent-tabs-mode t)
 
-  (add-hook 'c-mode-hook 'linux-c-mode)
-  (add-hook 'c++-mode-hook 'linux-cpp-mode)
-  (defun linux-c-mode()
+  (defun my-c-mode-auto-pair ()
     (interactive)
-	(c-set-style "K&R")
-	(c-toggle-hungry-state)
-	(setq c-basic-offset 4))
-  (defun linux-cpp-mode()
-    (define-key c++-mode-map [return] 'newline-and-indent)
-    (define-key c++-mode-map [(control c) (c)] 'compile)
-    (interactive)
-    (c-set-style "K&R")
-    (c-toggle-auto-state)
-    (c-toggle-hungry-state)
-    (setq c-basic-offset 4)
-    (imenu-add-menubar-index)
-    (which-function-mode))
+    (make-local-variable 'skeleton-pair-alist)
+    (setq skeleton-pair-alist  '(
+                                (?\' _ "'")
+                                (?\" _ "\"")
+                                (?\( _ ")")
+                                (?\[ _ "]")
+                                (?{ \n > _ \n ?} >)))
+   (setq skeleton-pair t)
+   (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+   (local-set-key (kbd "'") 'skeleton-pair-insert-maybe)
+   (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+   (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+   (add-hook 'c-mode-hook 'my-c-mode-auto-pair)
+
+   (add-hook 'c-mode-hook 'linux-c-mode)
+   (add-hook 'c++-mode-hook 'linux-cpp-mode)
+   (defun linux-c-mode()
+     (interactive)
+     (c-set-style "K&R")
+     (c-toggle-hungry-state)
+     (setq c-basic-offset 4))
+   (defun linux-cpp-mode()
+     (define-key c++-mode-map [return] 'newline-and-indent)
+     (define-key c++-mode-map [(control c) (c)] 'compile)
+     (interactive)
+     (c-set-style "K&R")
+     (c-toggle-auto-state)
+     (c-toggle-hungry-state)
+     (setq c-basic-offset 4)
+     (imenu-add-menubar-index)
+     (which-function-mode))
 #+end_src
 
 ** Emacs Lisp

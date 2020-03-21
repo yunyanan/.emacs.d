@@ -11,6 +11,10 @@
 This is my emacs configuration, it's simple, but in terms of editing, I think
 it's good enough. Of course, I will continue to improve it.
 
+**Note that I only use it on Linux, so I'm not sure if this configuration will
+work on other systems, especially Windows. I haven't tested it on any other
+system.**
+
 Configuration files list:
 * [init.el](https://github.com/yunyanan/.emacs.d/blob/master/init.el):
 Initialize configuration file.
@@ -19,11 +23,13 @@ Main configuration file.
 
 ## Getting Started
 
-Back up old configuration directory and clone this repository:
+Back up old configuration directory and clone this repository. Don't forget to
+update the submodule after clone finished.
 
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.bak
 git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
+./submodule_update.sh
 ```
 
 **NOTE:**
@@ -31,13 +37,13 @@ git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
   font is used in this configuration. You need to install this font on your computer first.
 
 + The following packages are used in the configuration, after emacs has
-  installed all the required packages, run all the commands to complete
-  the final installation.
+  installed all the required packages, run all the following commands to
+  complete the final installation.
 
   |package                                                       |command                                       |
   |:------------------------------------------------------------:|:--------------------------------------------:|
   |[Doom-modeline](https://github.com/seagle0128/doom-modeline)  | `M-x` `all-the-icons-install-fonts` `RTE`    |
-  |[Tabnine](https://github.com/TommyX12/company-tabnine)        | `M-x` `company-tabnine-install-binary` `RTE` | 
+  |[Tabnine](https://github.com/TommyX12/company-tabnine)        | `M-x` `company-tabnine-install-binary` `RTE` |
 
 ## License
 

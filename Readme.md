@@ -34,7 +34,8 @@ git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
 
 **NOTE:**
 + The [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/releases)
-  font is used in this configuration. You need to install this font on your computer first.
+  font is used in this configuration. You need to install this font on your
+  computer first.
 
 + The following packages are used in the configuration, after emacs has
   installed all the required packages, run all the following commands to

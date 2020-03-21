@@ -1007,7 +1007,9 @@ capabilities to ultimately Live in Emacs.
 #+end_quote
 
 EAF is still under active development, it can used to read PDF, preview org and
-markdown files, draw flow charts, mind maps, and more.
+markdown files, draw flow charts, mind maps, and more. I think you guessed it,
+it requires some other dependency, like python3. So, if you want to use this
+package, please at least read its [[https://github.com/manateelazycat/emacs-application-framework][home page]].
 
 #+begin_src emacs-lisp :tangle yes
 (use-package eaf

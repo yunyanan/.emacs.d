@@ -23,13 +23,11 @@ Main configuration file.
 
 ## Getting Started
 
-Back up old configuration directory and clone this repository. Don't forget to
-update the submodule after clone finished.
+Back up old configuration directory and clone this repository.
 
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.bak
-git clone https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
-./submodule_update.sh
+git clone --recursive https://github.com/yunyanan/.emacs.d.git ~/.emacs.d
 ```
 
 **NOTE:**

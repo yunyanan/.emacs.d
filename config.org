@@ -44,6 +44,7 @@
   - [[#hungry-delete][Hungry-delete]]
   - [[#word-wrap][Word Wrap]]
   - [[#org-mode][Org mode]]
+  - [[#leetcode][leetcode]]
 - [[#manual-installation][Manual Installation]]
   - [[#eaf][EAF]]
 
@@ -708,37 +709,37 @@ Company provides auto-completion at point and to Displays a small pop-in
 containing the candidates.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package company
-  :defer 1
-  :custom
-  (company-begin-commands '(self-insert-command))
-  (company-idle-delay .1)
-  (company-minimum-prefix-length 2)
-  (company-show-numbers t)
-  (company-tooltip-align-annotations 't)
-  (global-company-mode t))
+  (use-package company
+    :defer 1
+	:custom
+	(company-begin-commands '(self-insert-command))
+	(company-idle-delay .1)
+	(company-minimum-prefix-length 2)
+	(company-show-numbers t)
+	(company-tooltip-align-annotations 't)
+	(global-company-mode t))
 
-(use-package company-box
-  :disabled
-  :after company
-  :delight
-  :hook (company-mode . company-box-mode))
+  (use-package company-box
+	:disabled
+	:after company
+	:delight
+	:hook (company-mode . company-box-mode))
 
-;; company tabnine
-(use-package company-tabnine
-  :after company
-  :config (add-to-list 'company-backends #'company-tabnine)
-  ;; Trigger completion immediately.
-  (setq company-idle-delay 0.5)
-  ;; Number the candidates (use M-1, M-2 etc to select completions).
-  (setq company-show-numbers nil)
-  ;; Use the tab-and-go frontend.
-  ;; Allows TAB to select and complete at the same time.
-  (company-tng-configure-default)
-  (setq company-frontends
-		'(company-tng-frontend
-		  company-pseudo-tooltip-frontend
-		  company-echo-metadata-frontend)))
+  ;; company tabnine
+  (use-package company-tabnine
+	:after company
+	:config (add-to-list 'company-backends #'company-tabnine)
+	;; Trigger completion immediately.
+	(setq company-idle-delay 0.5)
+	;; Number the candidates (use M-1, M-2 etc to select completions).
+	(setq company-show-numbers nil)
+	;; Use the tab-and-go frontend.
+	;; Allows TAB to select and complete at the same time.
+	(company-tng-configure-default)
+	(setq company-frontends
+		  '(company-tng-frontend
+			company-pseudo-tooltip-frontend
+			company-echo-metadata-frontend)))
 #+end_src
 
 ** Ag
@@ -989,6 +990,13 @@ Org needs it for exporting HTML files.
 
 #+begin_src emacs-lisp :tangle yes
   (use-package htmlize :defer 1)
+#+end_src
+
+** leetcode
+#+begin_src emacs-lisp :tangle yes
+  (use-package leetcode
+  :config
+  (setq leetcode-prefer-language "c"))
 #+end_src
 
 * Manual Installation

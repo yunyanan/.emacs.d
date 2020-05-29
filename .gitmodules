@@ -4,3 +4,9 @@
 [submodule "lisp/nox"]
 	path = lisp/nox
 	url = https://github.com/manateelazycat/nox.git
+[submodule "valign"]
+	path = valign
+	url = https://github.com/casouri/valign.git
+[submodule "lisp/valign"]
+	path = lisp/valign
+	url = https://github.com/casouri/valign.git

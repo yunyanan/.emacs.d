@@ -127,16 +127,17 @@ For a better user experience of GNU Emacs, here are the default values I use.
   (show-paren-mode 1)                               ; Show the parent
   (delete-selection-mode)                           ; Replace the selected text
   (when window-system
-        (menu-bar-mode -1)                          ; Disable the menu bar
-        (scroll-bar-mode -1)                        ; Disable the scroll bar
-        (tool-bar-mode -1)                          ; Disable the tool bar
-        (tooltip-mode -1))                          ; Disable the tooltips
+		(menu-bar-mode -1)                          ; Disable the menu bar
+		(scroll-bar-mode -1)                        ; Disable the scroll bar
+		(tool-bar-mode -1)                          ; Disable the tool bar
+		(tooltip-mode -1))                          ; Disable the tooltips
   (global-set-key [remap kill-buffer] #'kill-this-buffer) ; Don’t ask before killing a buffer
   (global-set-key "\C-x\C-n" 'next-buffer)          ; Switch to next buffer
   (global-set-key "\C-x\C-p" 'previous-buffer)      ; Switch to previous buffer
   (global-set-key "\M-n" 'forward-paragraph)        ; Next section
   (global-set-key "\M-p" 'backward-paragraph)       ; Previous section
   (add-hook 'after-save-hook 'delete-trailing-whitespace) ; Delete whitespace at the end of the line
+  (add-to-list 'default-frame-alist '(fullscreen . maximized)) ; Fullscreen default
 #+end_src
 
 ** Fonts

@@ -19,6 +19,9 @@
   - [[#shell-script][Shell-script]]
   - [[#xml][XML]]
   - [[#markdown][Markdown]]
+  - [[#rust][Rust]]
+  - [[#makefile][Makefile]]
+  - [[#cmake][CMake]]
 - [[#advanced-configuration][Advanced Configuration]]
   - [[#projectile][Projectile]]
   - [[#dashboard][Dashboard]]
@@ -294,6 +297,41 @@ save a shell script file that begins with a =#!=:
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+#+end_src
+
+** Rust
+
+I am learning rust, it's great!
+
+#+begin_src emacs-lisp :tangle yes
+(use-package rust-mode
+    :config
+	(add-hook 'rust-mode-hook
+    (lambda () (setq indent-tabs-mode nil)))
+
+	(setq rust-format-on-save t)
+	(define-key rust-mode-map (kbd "C-c C-c") 'rust-run))
+#+end_src
+
+** Makefile
+
+There are many Makefile files in the Linux kernel that begin with the name
+"Makefile", such as "Makefile.build", and I want to use makefile-mode when I
+open these files, too.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package simple
+	:ensure nil
+	:mode (("Makefile\\." . makefile-mode)))
+#+end_src
+
+** CMake
+
+Using Cmake to automatically generate makefiles is also a good option.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package cmake-mode
+	:mode (("CMakeLists\\.txt\\'" . cmake-mode)))
 #+end_src
 
 * Advanced Configuration

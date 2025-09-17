@@ -70,9 +70,9 @@ In order to get more packages, it is necessary to add some package sources. I
 chose Tsinghua‘s package source because it is relatively stable and fast.
 
 #+begin_src emacs-lisp :tangle yes
-  (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                           ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-                           ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+  (setq package-archives '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                           ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                           ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 #+end_src
 
 ** use-package
@@ -85,7 +85,7 @@ Use =use-package= to better manage packages.
     (package-install 'use-package))
 
   (use-package delight :ensure t)
-  (use-package use-package-ensure-system-package :ensure t)
+  ;;(use-package use-package-ensure-system-package :ensure t)
 #+end_src
 
 * Start Up
@@ -119,7 +119,7 @@ For a better user experience of GNU Emacs, here are the default values I use.
   (setq make-backup-files nil)                      ; Disable default backup method
   (cd "~/")                                         ; Move to the user directory
   (column-number-mode 1)                            ; Show the column number
-  (global-linum-mode -1)                            ; Don't show line number
+  (global-display-line-numbers-mode -1)             ; Don't show line number
   (display-time-mode 1)                             ; Enable time in the mode-line
   (fset 'yes-or-no-p 'y-or-n-p)                     ; Replace yes/no prompts with y/n
   (global-hl-line-mode)                             ; Hightlight current line
@@ -131,7 +131,7 @@ For a better user experience of GNU Emacs, here are the default values I use.
 		(scroll-bar-mode -1)                        ; Disable the scroll bar
 		(tool-bar-mode -1)                          ; Disable the tool bar
 		(tooltip-mode -1))                          ; Disable the tooltips
-  (global-set-key [remap kill-buffer] #'kill-this-buffer) ; Don’t ask before killing a buffer
+  (global-set-key [remap kill-buffer] #'kill-current-buffer) ; Don’t ask before killing a buffer
   (global-set-key "\C-x\C-n" 'next-buffer)          ; Switch to next buffer
   (global-set-key "\C-x\C-p" 'previous-buffer)      ; Switch to previous buffer
   (global-set-key "\M-n" 'forward-paragraph)        ; Next section
@@ -146,7 +146,7 @@ Source Code Pro fonts is very beautiful and I really like it. Make sure you have
 it installed on your system first.
 
 #+begin_src emacs-lisp :tangle yes
-  (set-face-attribute 'default nil :font "Source Code Variable")
+  (set-face-attribute 'default nil :font "Source Code Pro")
   (set-fontset-font t 'latin "Noto Sans")
 #+end_src
 
@@ -191,7 +191,6 @@ it installed on your system first.
   (use-package solaire-mode
     :custom (solaire-mode-remap-fringe t)
     :config
-    (solaire-mode-swap-bg)
     (solaire-global-mode +1))
 #+end_src
 
@@ -1034,9 +1033,9 @@ Org needs it for exporting HTML files.
 
 ** leetcode
 #+begin_src emacs-lisp :tangle yes
-  (use-package leetcode
-  :config
-  (setq leetcode-prefer-language "c"))
+  ;; (use-package leetcode
+  ;; :config
+  ;; (setq leetcode-prefer-language "c"))
 #+end_src
 
 * Manual Installation
@@ -1060,14 +1059,14 @@ it requires some other dependency, like python3. So, if you want to use this
 package, please at least read its [[https://github.com/manateelazycat/emacs-application-framework][home page]].
 
 #+begin_src emacs-lisp :tangle yes
-(use-package eaf
-  :load-path "~/.emacs.d/lisp/emacs-application-framework"
-  :custom
-  (eaf-find-alternate-file-in-dired t)
-  :config
-  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key take_photo "p" eaf-camera-keybinding))
+  ;; (use-package eaf
+  ;;   :load-path "~/.emacs.d/lisp/emacs-application-framework"
+  ;;   :custom
+  ;;   (eaf-find-alternate-file-in-dired t)
+  ;;   :config
+  ;;   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+  ;;   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  ;;   (eaf-bind-key take_photo "p" eaf-camera-keybinding))
 #+end_src
 
 

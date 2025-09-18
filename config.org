@@ -630,13 +630,14 @@ Ivy is a generic completion mechanism for Emacs.
 Undo-tree allows mē to make undo and redo clearer.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package undo-tree
-  :delight
-  :bind ("C--" . undo-tree-redo)
-  :init (global-undo-tree-mode)
-  :custom
-  (undo-tree-visualizer-timestamps t)
-  (undo-tree-visualizer-diff t))
+  (use-package undo-tree
+    :delight
+    :bind ("C--" . undo-tree-redo)
+    :init (global-undo-tree-mode)
+    :custom
+    (undo-tree-visualizer-timestamps t)
+    (undo-tree-visualizer-diff t)
+    (undo-tree-history-directory-alist `(("." . "~/.emacs.d/.cache/"))))
 #+end_src
 
 ** Which-key

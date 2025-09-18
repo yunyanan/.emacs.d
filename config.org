@@ -51,6 +51,8 @@
 - [[#manual-installation][Manual Installation]]
   - [[#eaf][EAF]]
   - [[#valign][valign]]
+  - [[#rime][rime]]
+  - [[#devicetree-major-mode][DeviceTree Major Mode]]
 
 * About
 
@@ -146,7 +148,7 @@ Source Code Pro fonts is very beautiful and I really like it. Make sure you have
 it installed on your system first.
 
 #+begin_src emacs-lisp :tangle yes
-  (set-face-attribute 'default nil :font "Source Code Pro")
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 120)
   (set-fontset-font t 'latin "Noto Sans")
 #+end_src
 
@@ -1080,4 +1082,36 @@ This package provides visual alignment for Org tables on GUI Emacs.
 (use-package valign
   :load-path "~/.emacs.d/lisp/valign"
   :hook (org-mode . valign-mode))
+#+end_src
+
+** rime
+
+#+begin_quote
+Chinese input method in Emacs
+#+end_quote
+
+#+begin_src emacs-lisp :tangle yes
+(use-package rime
+  :load-path "~/.emacs.d/lisp/emacs-rime"
+  :config
+  (setq rime-user-data-dir "~/.config/fcitx/rime")
+  (setq rime-posframe-properties
+		(list :background-color "#333333"
+              :foreground-color "#dcdccc"
+              :font "WenQuanYi Micro Hei Mono-14"
+              :internal-border-width 10))
+  (setq default-input-method "rime"
+		rime-show-candidate 'posframe))
+#+end_src
+
+** DeviceTree Major Mode
+
+#+begin_quote
+When modifying device tree files in the Linux kernel, a major mode is required.
+#+end_quote
+
+#+begin_src emacs-lisp :tangle yes
+(use-package dts-mode
+  :mode (("\\.dts\\'" . dts-mode)
+         ("\\.dtsi\\'" . dts-mode)))
 #+end_src
